@@ -51,6 +51,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       final calendarApi = CalendarApi(httpClient);
 
       final e = Event(
+        iCalUID: 'mtd-${DateTime.now().microsecondsSinceEpoch}',
         summary: event.title,
         start: EventDateTime(dateTime: event.date),
         end: EventDateTime(dateTime: event.date.add(const Duration(hours: 1))),

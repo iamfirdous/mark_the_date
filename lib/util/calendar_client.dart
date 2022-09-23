@@ -51,9 +51,9 @@ class GoogleDataSource extends CalendarDataSource {
         : (event.summary ?? '');
   }
 
-  // @override
-  // Color getColor(int index) {
-  //   final event = appointments?[index] as Event;
-  //   return event.kind == 'mtd' ? AppColors.primary : Colors.black;
-  // }
+  @override
+  Color getColor(int index) {
+    final event = appointments?[index] as Event;
+    return event.iCalUID?.startsWith('mtd-') == true ? AppColors.primary : Colors.black;
+  }
 }
